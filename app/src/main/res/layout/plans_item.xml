@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="com.akshay.credstackview.home.plans.PlanItemViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="4dp"
+    app:cardCornerRadius="24dp">
+
+    <TextView
+      android:id="@+id/plan_recommended"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@drawable/recommended_capsule"
+      android:elevation="6dp"
+      android:letterSpacing="0.2"
+      android:padding="4dp"
+      android:text="@string/plan_recommended"
+      android:textSize="12sp"
+      android:visibility="invisible"
+      app:layout_constraintBottom_toBottomOf="@+id/guideline1"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.cardview.widget.CardView
+      android:id="@+id/plans_item_card_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      app:cardCornerRadius="24dp"
+      app:cardElevation="4dp"
+      app:cardBackgroundColor="@color/design_default_color_error"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="54dp"
+        android:paddingBottom="16dp">
+
+        <CheckBox
+          android:id="@+id/plan_check"
+          android:layout_width="40dp"
+          android:layout_height="40dp"
+          android:layout_marginStart="8dp"
+          android:button="@drawable/plan_selector"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+          android:id="@+id/plan_price"
+          style="@style/Heading1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
+          android:letterSpacing="0.08"
+          app:layout_constraintStart_toStartOf="@+id/plan_check"
+          app:layout_constraintTop_toBottomOf="@id/plan_check"
+          tools:text="4,247 / mo" />
+
+        <TextView
+          android:id="@+id/plan_period"
+          style="@style/Heading2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:letterSpacing="0.08"
+          app:layout_constraintStart_toStartOf="@+id/plan_price"
+          app:layout_constraintTop_toBottomOf="@id/plan_price"
+          tools:text="for 12 months" />
+
+        <TextView
+          android:id="@+id/tv_see_calculation"
+          style="@style/Heading2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:alpha="0.6"
+          android:letterSpacing="0.08"
+          android:text="@string/plans_item_calculation"
+          app:layout_constraintStart_toStartOf="@+id/plan_period"
+          app:layout_constraintTop_toBottomOf="@+id/plan_period" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

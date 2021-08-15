@@ -7,7 +7,7 @@
 
     <variable
       name="viewModel"
-      type="com.akshay.credstackview.home.HomeViewModel" />
+      type="com.akshay.credstackview.home.creditamount.CreditAmountViewModel" />
   </data>
 
   <androidx.constraintlayout.motion.widget.MotionLayout
@@ -83,7 +83,6 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/credit_amount_message"
-      app:viewModel="@{viewModel}" />
+      app:layout_constraintTop_toBottomOf="@id/credit_amount_message" />
   </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

@@ -17,4 +17,6 @@
   <string name="transaction_detail_message">amount will be credited to this bank account, EMI will also be debited from this bank account</string>
   <string name="transaction_detail_change_account">Change account</string>
   <string name="transaction_detail_detail_proceed">Tap for 1-click KYC</string>
+  <string name="plans_item_calculation">See calculations</string>
+  <string name="plan_recommended">recommended</string>
 </resources>

@@ -5,14 +5,16 @@ import androidx.databinding.DataBindingUtil
 import com.akshay.credstackview.R
 import com.akshay.credstackview.activity.ActivityScope
 import com.akshay.credstackview.databinding.ActivityHomeBinding
+import com.akshay.credstackview.home.creditamount.CreditAmountPresenter
+import com.akshay.credstackview.home.plans.PlansPresenter
 import com.akshay.credstackview.viewmodel.ViewModelProvider
-import com.akshay.domain.user.UserController
 import javax.inject.Inject
 
 @ActivityScope
 class HomePresenter @Inject constructor(
   private val activity: AppCompatActivity,
-  private val userController: UserController,
+  private val creditAmountPresenter: CreditAmountPresenter,
+  private val plansPresenter: PlansPresenter,
   private val viewModelProvider: ViewModelProvider<HomeViewModel>
 ) {
 
@@ -31,13 +33,8 @@ class HomePresenter @Inject constructor(
       lifecycleOwner = activity
       viewModel = homeScreenViewModel
     }
-    subscribeToData()
-  }
-
-  private fun subscribeToData() {
-    val user = userController.getUser()
-    homeScreenViewModel.userName.value = user.name
-    homeScreenViewModel.formatCurrency(user.creditLimit)
+    creditAmountPresenter.handleCreditAmount(binding.creditAmount)
+    plansPresenter.handleCredPlans(binding.creditAmount.plansView)
   }
 
   private fun getHomeViewModel(): HomeViewModel {

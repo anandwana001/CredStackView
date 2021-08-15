@@ -35,6 +35,11 @@ class CredPlansController @Inject constructor() {
         pricePerMonth = 10223,
         timePeriodInMonths = 4,
         isRecommended = false
+      ),
+      CredPlan(
+        pricePerMonth = 12000,
+        timePeriodInMonths = 2,
+        isRecommended = false
       )
     )
   }
