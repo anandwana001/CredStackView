@@ -9,12 +9,39 @@
       type="com.akshay.credstackview.home.HomeViewModel" />
   </data>
 
-  <androidx.constraintlayout.motion.widget.MotionLayout
-    android:id="@+id/root"
+  <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/activity_home_scene">
+    android:background="@color/grey">
 
+    <Button
+      android:id="@+id/close_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="32dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
-  </androidx.constraintlayout.motion.widget.MotionLayout>
+    <Button
+      android:id="@+id/faq_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="16dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+      android:id="@+id/credit_amount"
+      layout="@layout/credit_amount_view"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginTop="16dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/close_button"
+      app:viewModel="@{viewModel}"/>
+  </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

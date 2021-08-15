@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+       </KeyFrameSet>
+      <OnClick motion:targetId="@+id/button" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+      <Constraint
+        android:id="@+id/credit_amount_question"
+        motion:layout_constraintEnd_toStartOf="@+id/credit_amount_expand"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        motion:layout_constraintTop_toTopOf="parent"
+        motion:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp">
+        <CustomAttribute
+          motion:attributeName="text"
+          motion:customStringValue="@string/credit_amount_question" />
+      </Constraint>
+      <Constraint
+        android:id="@+id/plans_view"
+        motion:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        motion:layout_constraintBottom_toBottomOf="parent"
+        motion:layout_constraintTop_toBottomOf="@id/credit_amount_message"
+        motion:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+      <Constraint
+        android:id="@+id/credit_amount_expand"
+        motion:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        motion:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp" />
+      <Constraint
+        android:id="@+id/credit_amount_question"
+        motion:layout_constraintEnd_toStartOf="@+id/credit_amount_expand"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        motion:layout_constraintTop_toTopOf="parent"
+        motion:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp">
+        <CustomAttribute
+          motion:attributeName="text"
+          motion:customStringValue="@string/credit_amount_selected" />
+      </Constraint>
+      <Constraint
+        android:id="@+id/plans_view"
+        motion:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        motion:layout_constraintBottom_toBottomOf="parent"
+        motion:layout_constraintTop_toBottomOf="@id/credit_amount_message"
+        motion:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:visibility="visible" />
+      <Constraint
+        android:id="@+id/button"
+        motion:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        motion:layout_constraintBottom_toBottomOf="parent"
+        motion:layout_constraintStart_toStartOf="parent"
+        android:visibility="invisible" />
+    </ConstraintSet>
+  <Transition
+    motion:constraintSetStart="@+id/end"
+    motion:constraintSetEnd="@+id/start" >
+    <OnClick motion:targetId="@+id/credit_amount_expand" />
+  </Transition>
+</MotionScene>

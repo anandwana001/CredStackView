@@ -16,12 +16,14 @@ class HomePresenter @Inject constructor(
   private val viewModelProvider: ViewModelProvider<HomeViewModel>
 ) {
 
+  private lateinit var binding: ActivityHomeBinding
+
   private val homeScreenViewModel by lazy {
     getHomeViewModel()
   }
 
   fun handleOnCreate() {
-    val binding = DataBindingUtil.setContentView<ActivityHomeBinding>(
+    binding = DataBindingUtil.setContentView<ActivityHomeBinding>(
       activity,
       R.layout.activity_home
     )

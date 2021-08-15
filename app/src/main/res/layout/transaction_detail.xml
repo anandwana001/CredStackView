@@ -19,7 +19,7 @@
       android:background="@drawable/credit_amount_background" />
 
     <TextView
-      android:id="@+id/transaction_detail_detail_question"
+      android:id="@+id/transaction_detail_question"
       style="@style/Heading1"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
@@ -32,27 +32,27 @@
       app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-      android:id="@+id/transaction_detail_detail_message"
+      android:id="@+id/transaction_detail_message"
       style="@style/Heading2"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="4dp"
       android:text="@string/transaction_detail_message"
-      app:layout_constraintEnd_toEndOf="@+id/transaction_detail_detail_question"
-      app:layout_constraintStart_toStartOf="@+id/transaction_detail_detail_question"
-      app:layout_constraintTop_toBottomOf="@+id/transaction_detail_detail_question" />
+      app:layout_constraintEnd_toEndOf="@+id/transaction_detail_question"
+      app:layout_constraintStart_toStartOf="@+id/transaction_detail_question"
+      app:layout_constraintTop_toBottomOf="@+id/transaction_detail_question" />
 
     <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/transaction_detail_detail_recycler_view"
+      android:id="@+id/transaction_detail_recycler_view"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/transaction_detail_detail_message" />
+      app:layout_constraintTop_toBottomOf="@+id/transaction_detail_message" />
 
     <com.google.android.material.button.MaterialButton
-      android:id="@+id/plans_view_create_plan"
+      android:id="@+id/transaction_detail_change_account"
       style="@style/Widget.MaterialComponents.Button.OutlinedButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/transaction_detail_detail_recycler_view"
+      app:layout_constraintTop_toBottomOf="@+id/transaction_detail_recycler_view"
       app:strokeColor="@color/white" />
 
     <Button
