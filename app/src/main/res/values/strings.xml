@@ -12,6 +12,8 @@
   <string name="plans_view_expand_icon">expand plan selection step</string>
   <string name="plans_view_create_plan">Create your own plan</string>
   <string name="plans_view_proceed">Select your bank account</string>
+  <string name="plans_price_per_month">%d / mo</string>
+  <string name="plans_price_for_month">for %d months</string>
   <!-- Transaction Screen -->
   <string name="transaction_detail_question">where should we send the money?</string>
   <string name="transaction_detail_message">amount will be credited to this bank account, EMI will also be debited from this bank account</string>

@@ -7,6 +7,7 @@ import com.akshay.credstackview.activity.ActivityScope
 import com.akshay.credstackview.databinding.ActivityHomeBinding
 import com.akshay.credstackview.home.creditamount.CreditAmountPresenter
 import com.akshay.credstackview.home.plans.PlansPresenter
+import com.akshay.credstackview.home.transaction.TransactionPresenter
 import com.akshay.credstackview.viewmodel.ViewModelProvider
 import javax.inject.Inject
 
@@ -15,6 +16,7 @@ class HomePresenter @Inject constructor(
   private val activity: AppCompatActivity,
   private val creditAmountPresenter: CreditAmountPresenter,
   private val plansPresenter: PlansPresenter,
+  private val transactionPresenter: TransactionPresenter,
   private val viewModelProvider: ViewModelProvider<HomeViewModel>
 ) {
 
@@ -35,6 +37,7 @@ class HomePresenter @Inject constructor(
     }
     creditAmountPresenter.handleCreditAmount(binding.creditAmount)
     plansPresenter.handleCredPlans(binding.creditAmount.plansView)
+    transactionPresenter.handleCredPlans(binding.creditAmount.plansView.transactionDetail)
   }
 
   private fun getHomeViewModel(): HomeViewModel {

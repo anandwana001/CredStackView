@@ -6,6 +6,10 @@
   <color name="teal_200">#FF03DAC5</color>
   <color name="teal_700">#FF018786</color>
   <color name="black">#131313</color>
+  <color name="eastern_blue_shade_400">#165a72</color>
+  <color name="eastern_blue_shade_500">#134b5f</color>
+  <color name="eastern_blue_shade_600">#0f3c4c</color>
+  <color name="eastern_blue_shade_700">#0b2d39</color>
   <color name="light_black">#3b444b</color>
   <color name="light_black_2">#353839</color>
   <color name="white">#FFFFFFFF</color>

@@ -30,9 +30,6 @@
       motion:layout_constraintEnd_toStartOf="@+id/credit_amount_expand"
       motion:layout_constraintStart_toStartOf="parent"
       motion:layout_constraintTop_toTopOf="parent">
-      <CustomAttribute
-        motion:attributeName="text"
-        motion:customStringValue="@string/credit_amount_question" />
     </Constraint>
     <Constraint
       android:id="@+id/plans_view"

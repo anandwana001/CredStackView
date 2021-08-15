@@ -1,10 +1,8 @@
 package com.akshay.credstackview.home.plans
 
 import androidx.lifecycle.ViewModel
-import com.akshay.credstackview.activity.ActivityScope
-import javax.inject.Inject
+import com.akshay.data.model.CredPlan
 
-@ActivityScope
-class PlanItemViewModel @Inject constructor() : ViewModel() {
+class PlanItemViewModel(val plan: CredPlan) : ViewModel() {
 
 }

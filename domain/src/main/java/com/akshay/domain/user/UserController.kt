@@ -1,6 +1,7 @@
 package com.akshay.domain.user
 
 import com.akshay.data.model.PaymentTypes
+import com.akshay.data.model.TransactionDetail
 import com.akshay.data.model.User
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -16,11 +17,17 @@ class UserController @Inject constructor() {
   }
 
   private fun createUser(): User {
+    val transactionDetailList = listOf<TransactionDetail>(
+      TransactionDetail(
+        phoneNumber = 919935670475,
+        paymentType = PaymentTypes.PAYTM
+      )
+    )
+
     return User(
       name = "Nikunj",
-      phoneNumber = 919935670475,
-      paymentType = PaymentTypes.PAYTM,
-      creditLimit = 487891
+      creditLimit = 487891,
+      userTransactionDetails = transactionDetailList
     )
   }
 

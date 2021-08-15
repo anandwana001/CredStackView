@@ -5,6 +5,8 @@
 
   <data>
 
+    <import type="android.view.View" />
+
     <variable
       name="viewModel"
       type="com.akshay.credstackview.home.plans.PlanItemViewModel" />
@@ -23,11 +25,14 @@
       android:layout_height="wrap_content"
       android:background="@drawable/recommended_capsule"
       android:elevation="6dp"
-      android:letterSpacing="0.2"
-      android:padding="4dp"
+      android:paddingStart="12dp"
+      android:paddingTop="4dp"
+      android:paddingEnd="12dp"
+      android:paddingBottom="4dp"
       android:text="@string/plan_recommended"
       android:textSize="12sp"
-      android:visibility="invisible"
+      android:fontFamily="@font/axiforma_medium"
+      android:visibility="@{viewModel.plan.recommended ? View.VISIBLE : View.INVISIBLE}"
       app:layout_constraintBottom_toBottomOf="@+id/guideline1"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -38,16 +43,16 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="horizontal"
-      app:layout_constraintGuide_percent="0.2" />
+      app:layout_constraintGuide_percent="0.25" />
 
     <androidx.cardview.widget.CardView
       android:id="@+id/plans_item_card_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="24dp"
+      app:cardBackgroundColor="@color/design_default_color_error"
       app:cardCornerRadius="24dp"
       app:cardElevation="4dp"
-      app:cardBackgroundColor="@color/design_default_color_error"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -76,30 +81,37 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="12dp"
-          android:letterSpacing="0.08"
+          android:letterSpacing="0"
+          android:fontFamily="@font/axiforma_medium"
+          android:text="@{String.format(@string/plans_price_per_month, viewModel.plan.pricePerMonth)}"
           app:layout_constraintStart_toStartOf="@+id/plan_check"
           app:layout_constraintTop_toBottomOf="@id/plan_check"
           tools:text="4,247 / mo" />
 
         <TextView
           android:id="@+id/plan_period"
-          style="@style/Heading2"
+          android:textSize="12sp"
+          android:textColor="@color/white"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="8dp"
-          android:letterSpacing="0.08"
+          android:letterSpacing="0"
+          android:fontFamily="@font/axiforma_medium"
+          android:text="@{String.format(@string/plans_price_for_month, viewModel.plan.timePeriodInMonths)}"
           app:layout_constraintStart_toStartOf="@+id/plan_price"
           app:layout_constraintTop_toBottomOf="@id/plan_price"
           tools:text="for 12 months" />
 
         <TextView
           android:id="@+id/tv_see_calculation"
-          style="@style/Heading2"
+          android:textSize="12sp"
+          android:textColor="@color/white"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="16dp"
           android:alpha="0.6"
-          android:letterSpacing="0.08"
+          android:letterSpacing="0.1"
+          android:fontFamily="@font/axiforma_light"
           android:text="@string/plans_item_calculation"
           app:layout_constraintStart_toStartOf="@+id/plan_period"
           app:layout_constraintTop_toBottomOf="@+id/plan_period" />

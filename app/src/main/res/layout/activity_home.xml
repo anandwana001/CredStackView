@@ -12,23 +12,25 @@
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey">
+    android:background="@color/eastern_blue_shade_700">
 
     <Button
       android:id="@+id/close_button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="20dp"
+      android:layout_height="20dp"
       android:layout_marginStart="16dp"
       android:layout_marginTop="32dp"
+      android:background="@drawable/close_button"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
     <Button
       android:id="@+id/faq_button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="20dp"
+      android:layout_height="20dp"
       android:layout_marginTop="32dp"
       android:layout_marginEnd="16dp"
+      android:background="@drawable/close_button"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 

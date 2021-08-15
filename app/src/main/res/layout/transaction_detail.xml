@@ -6,7 +6,7 @@
 
     <variable
       name="viewModel"
-      type="com.akshay.credstackview.home.HomeViewModel" />
+      type="com.akshay.credstackview.home.transaction.TransactionViewModel" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +16,7 @@
     <View
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:background="@drawable/credit_amount_background" />
+      android:background="@drawable/transaction_backgorund" />
 
     <TextView
       android:id="@+id/transaction_detail_question"
@@ -26,6 +26,7 @@
       android:layout_marginStart="32dp"
       android:layout_marginTop="32dp"
       android:layout_marginEnd="8dp"
+      android:letterSpacing="0.1"
       android:text="@string/transaction_detail_question"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +36,7 @@
       android:id="@+id/transaction_detail_message"
       style="@style/Heading2"
       android:layout_width="0dp"
+      android:letterSpacing="0.1"
       android:layout_height="wrap_content"
       android:layout_marginTop="4dp"
       android:text="@string/transaction_detail_message"
@@ -44,12 +46,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/transaction_detail_recycler_view"
-      android:layout_width="match_parent"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/transaction_detail_message" />
+      app:layout_constraintEnd_toEndOf="@+id/transaction_detail_message"
+      app:layout_constraintStart_toStartOf="@+id/transaction_detail_question"
+      app:layout_constraintTop_toBottomOf="@+id/transaction_detail_message"
+      app:list="@{viewModel.transactionItemViewModelList}" />
 
     <com.google.android.material.button.MaterialButton
       android:id="@+id/transaction_detail_change_account"
@@ -58,6 +61,7 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="32dp"
       android:layout_marginTop="8dp"
+      android:fontFamily="@font/axiforma_medium"
       android:letterSpacing="0"
       android:text="@string/transaction_detail_change_account"
       android:textColor="@color/white"
@@ -73,10 +77,12 @@
       style="@style/ProceedButton"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:fontFamily="@font/axiforma_medium"
       android:padding="16dp"
       android:text="@string/transaction_detail_detail_proceed"
       android:textAllCaps="false"
       android:textColor="@color/white"
+      android:letterSpacing="0"
       android:textStyle="bold"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"

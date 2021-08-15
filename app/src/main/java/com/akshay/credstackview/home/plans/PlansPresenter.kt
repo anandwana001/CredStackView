@@ -3,7 +3,9 @@ package com.akshay.credstackview.home.plans
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.akshay.credstackview.activity.ActivityScope
+import com.akshay.credstackview.databinding.PlansItemBinding
 import com.akshay.credstackview.databinding.PlansViewBinding
+import com.akshay.credstackview.recyclerview.BindableAdapter
 import com.akshay.credstackview.viewmodel.ViewModelProvider
 import com.akshay.domain.credplans.CredPlansController
 import javax.inject.Inject
@@ -15,27 +17,32 @@ class PlansPresenter @Inject constructor(
   private val viewModelProvider: ViewModelProvider<PlansViewModel>
 ) {
 
-  @Inject
-  lateinit var plansAdapter: PlansAdapter
-
   private val credPlansViewModel by lazy {
     getPlansViewModel()
   }
 
   fun handleCredPlans(binding: PlansViewBinding) {
+    binding.plansRecyclerView.apply {
+      layoutManager =
+        LinearLayoutManager(activity.applicationContext, LinearLayoutManager.HORIZONTAL, false)
+      adapter = createRecyclerViewAdapter()
+    }
+
     binding.apply {
       viewModel = credPlansViewModel
     }
 
-    val horizontalLayoutManager =
-      LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-    binding.plansRecyclerView.apply {
-      adapter = plansAdapter
-      layoutManager = horizontalLayoutManager
-    }
-
     val listOfPlans = plansController.getListOfCredPlan()
-    plansAdapter.setPlansList(listOfPlans)
+    credPlansViewModel.setPlansList(listOfPlans)
+  }
+
+  private fun createRecyclerViewAdapter(): BindableAdapter<PlanItemViewModel> {
+    return BindableAdapter.AdapterBuilder
+      .newBuilder<PlanItemViewModel>()
+      .registerView(
+        inflateDataBinding = PlansItemBinding::inflate,
+        setViewModel = PlansItemBinding::setViewModel
+      ).build()
   }
 
   private fun getPlansViewModel(): PlansViewModel {
