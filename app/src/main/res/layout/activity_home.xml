@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="com.akshay.credstackview.home.HomeViewModel" />
+  </data>
+
+  <androidx.constraintlayout.motion.widget.MotionLayout
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_home_scene">
+
+
+  </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

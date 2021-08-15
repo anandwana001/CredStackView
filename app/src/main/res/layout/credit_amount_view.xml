@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="com.akshay.credstackview.home.HomeViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@drawable/credit_amount_background" />
+
+    <ImageView
+      android:id="@+id/credit_amount_expand"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="24dp"
+      android:contentDescription="@string/credit_amount_expand_icon"
+      android:src="@drawable/ic_expand"
+      android:visibility="invisible"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/credit_amount_question"
+      style="@style/Heading1"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="8dp"
+      android:text="@{String.format(@string/credit_amount_question, viewModel.userName)}"
+      app:layout_constraintEnd_toStartOf="@+id/credit_amount_expand"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="nikunj, how much do you need?" />
+
+    <TextView
+      android:id="@+id/credit_amount_message"
+      style="@style/Heading2"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:text="@{String.format(@string/credit_amount_message, viewModel.userCreditLimit)}"
+      app:layout_constraintEnd_toEndOf="@+id/credit_amount_question"
+      app:layout_constraintStart_toStartOf="@+id/credit_amount_question"
+      app:layout_constraintTop_toBottomOf="@+id/credit_amount_question"
+      tools:text="move the dial and set any amount you need upto 123" />
+
+    <Button
+      style="@style/ProceedButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="16dp"
+      android:text="@string/credit_amount_proceed"
+      android:textAllCaps="false"
+      android:textColor="@color/white"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

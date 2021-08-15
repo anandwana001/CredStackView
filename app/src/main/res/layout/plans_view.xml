@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="com.akshay.credstackview.home.HomeViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+      android:id="@+id/view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@drawable/credit_amount_background" />
+
+    <ImageView
+      android:id="@+id/credit_amount_expand"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="24dp"
+      android:contentDescription="@string/plans_view_expand_icon"
+      android:src="@drawable/ic_expand"
+      android:visibility="invisible"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/plans_view_question"
+      style="@style/Heading1"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="8dp"
+      android:text="@string/plans_view_question"
+      app:layout_constraintEnd_toStartOf="@+id/credit_amount_expand"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/credit_amount_message"
+      style="@style/Heading2"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:text="@string/plans_view_message"
+      app:layout_constraintEnd_toEndOf="@+id/plans_view_question"
+      app:layout_constraintStart_toStartOf="@+id/plans_view_question"
+      app:layout_constraintTop_toBottomOf="@+id/plans_view_question" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/plans_recycler_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/credit_amount_message" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/plans_view_create_plan"
+      style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="8dp"
+      android:letterSpacing="0"
+      android:text="@string/plans_view_create_plan"
+      android:textColor="@color/white"
+      android:textSize="12sp"
+      app:cornerRadius="18dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/plans_recycler_view"
+      app:strokeColor="@color/white" />
+
+    <Button
+      style="@style/ProceedButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="16dp"
+      android:text="@string/plans_view_proceed"
+      android:textColor="@color/white"
+      android:textStyle="bold"
+      android:textAllCaps="false"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
