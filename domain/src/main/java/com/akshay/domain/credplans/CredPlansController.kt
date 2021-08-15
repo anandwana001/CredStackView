@@ -1,13 +1,20 @@
 package com.akshay.domain.credplans
 
 import com.akshay.data.model.CredPlan
+import javax.inject.Inject
 import javax.inject.Singleton
 
 /** Controller for retrieving, adding, updating, and deleting cred plans. */
 @Singleton
-class CredPlansController {
+class CredPlansController @Inject constructor() {
 
-  fun createCredPlans(): List<CredPlan> {
+  private var listOfCredPlan: List<CredPlan>
+
+  init {
+    listOfCredPlan = createCredPlans()
+  }
+
+  private fun createCredPlans(): List<CredPlan> {
     return listOf<CredPlan>(
       CredPlan(
         pricePerMonth = 4247,
@@ -31,4 +38,6 @@ class CredPlansController {
       )
     )
   }
+
+  fun getListOfCredPlan() = listOfCredPlan
 }
