@@ -5,16 +5,17 @@
 
   <data>
 
+    <import type="android.view.View" />
+
     <variable
       name="viewModel"
       type="com.akshay.credstackview.home.creditamount.CreditAmountViewModel" />
   </data>
 
-  <androidx.constraintlayout.motion.widget.MotionLayout
+  <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/credit_amount_motion_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layoutDescription="@xml/cred_stack_view_motion_scene">
+    android:layout_height="match_parent">
 
     <View
       android:id="@+id/view2"
@@ -30,9 +31,10 @@
       android:layout_marginEnd="24dp"
       android:contentDescription="@string/credit_amount_expand_icon"
       android:src="@drawable/ic_expand"
-      android:visibility="invisible"
+      android:visibility="@{viewModel.endTransition ? View.VISIBLE : View.GONE}"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      app:onClick="@{viewModel::onClick}" />
 
     <TextView
       android:id="@+id/credit_amount_question"
@@ -44,7 +46,7 @@
       android:layout_marginEnd="8dp"
       android:fontFamily="@font/axiforma_medium"
       android:letterSpacing="0.1"
-      android:text="@{String.format(@string/credit_amount_question, viewModel.userName)}"
+      android:text="@{viewModel.endTransition ? @string/credit_amount_selected : String.format(@string/credit_amount_question, viewModel.userName)}"
       android:textAllCaps="false"
       app:layout_constraintEnd_toStartOf="@+id/credit_amount_expand"
       app:layout_constraintStart_toStartOf="parent"
@@ -71,25 +73,28 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:fontFamily="@font/axiforma_medium"
+      android:letterSpacing="0"
       android:padding="16dp"
       android:text="@string/credit_amount_proceed"
       android:textAllCaps="false"
       android:textColor="@color/white"
       android:textStyle="bold"
-      android:letterSpacing="0"
+      android:visibility="@{viewModel.endTransition ? View.GONE : View.VISIBLE}"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
+      app:layout_constraintStart_toStartOf="parent"
+      app:onClick="@{viewModel::onClick}" />
 
     <include
       android:id="@+id/plans_view"
       layout="@layout/plans_view"
-      android:layout_width="0dp"
+      android:layout_width="match_parent"
       android:layout_height="0dp"
       android:layout_marginTop="8dp"
+      android:visibility="gone"
+      app:animate="@{viewModel.endTransition}"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@id/credit_amount_message" />
-  </androidx.constraintlayout.motion.widget.MotionLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

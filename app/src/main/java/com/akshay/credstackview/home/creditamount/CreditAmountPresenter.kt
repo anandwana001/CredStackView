@@ -2,7 +2,7 @@ package com.akshay.credstackview.home.creditamount
 
 import androidx.appcompat.app.AppCompatActivity
 import com.akshay.credstackview.activity.ActivityScope
-import com.akshay.credstackview.databinding.CreditAmountViewBinding
+import com.akshay.credstackview.databinding.AmountViewBinding
 import com.akshay.credstackview.viewmodel.ViewModelProvider
 import com.akshay.domain.user.UserController
 import javax.inject.Inject
@@ -18,7 +18,7 @@ class CreditAmountPresenter @Inject constructor(
     getCreditAmountViewModel()
   }
 
-  fun handleCreditAmount(binding: CreditAmountViewBinding) {
+  fun handleCreditAmount(binding: AmountViewBinding) {
     binding.apply {
       viewModel = creditViewModel
     }

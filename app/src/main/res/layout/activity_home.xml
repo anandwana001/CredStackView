@@ -36,7 +36,7 @@
 
     <include
       android:id="@+id/credit_amount"
-      layout="@layout/credit_amount_view"
+      layout="@layout/amount_view"
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:layout_marginTop="16dp"

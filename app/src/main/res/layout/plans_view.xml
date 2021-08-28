@@ -4,16 +4,17 @@
 
   <data>
 
+    <import type="android.view.View" />
+
     <variable
       name="viewModel"
       type="com.akshay.credstackview.home.plans.PlansViewModel" />
   </data>
 
-  <androidx.constraintlayout.motion.widget.MotionLayout
+  <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layoutDescription="@xml/plans_view_xml_constraintlayout_scene">
+    android:layout_height="match_parent">
 
     <View
       android:id="@+id/view"
@@ -29,21 +30,22 @@
       android:layout_marginEnd="24dp"
       android:contentDescription="@string/plans_view_expand_icon"
       android:src="@drawable/ic_expand"
-      android:visibility="invisible"
+      android:visibility="@{viewModel.endTransition ? View.VISIBLE : View.GONE}"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"
+      app:onClick="@{viewModel::onClick}"
       app:visibilityMode="normal" />
 
     <TextView
       android:id="@+id/plans_view_question"
       style="@style/Heading1"
-      android:fontFamily="@font/axiforma_medium"
       android:layout_width="0dp"
-      android:letterSpacing="0.1"
       android:layout_height="wrap_content"
       android:layout_marginStart="32dp"
       android:layout_marginTop="32dp"
       android:layout_marginEnd="8dp"
+      android:fontFamily="@font/axiforma_medium"
+      android:letterSpacing="0.1"
       android:text="@string/plans_view_question"
       app:layout_constraintEnd_toStartOf="@+id/plans_view_expand"
       app:layout_constraintStart_toStartOf="parent"
@@ -52,10 +54,10 @@
     <TextView
       android:id="@+id/plans_view_message"
       style="@style/Heading2"
-      android:fontFamily="@font/axiforma_medium"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="4dp"
+      android:fontFamily="@font/axiforma_medium"
       android:letterSpacing="0.1"
       android:text="@string/plans_view_message"
       app:layout_constraintEnd_toEndOf="@+id/plans_view_question"
@@ -97,16 +99,18 @@
       style="@style/ProceedButton"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:fontFamily="@font/axiforma_medium"
+      android:letterSpacing="0"
       android:padding="16dp"
       android:text="@string/plans_view_proceed"
       android:textAllCaps="false"
-      android:fontFamily="@font/axiforma_medium"
       android:textColor="@color/white"
       android:textStyle="bold"
-      android:letterSpacing="0"
+      android:visibility="@{viewModel.endTransition ? View.GONE : View.VISIBLE}"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
+      app:layout_constraintStart_toStartOf="parent"
+      app:onClick="@{viewModel::onClick}" />
 
     <include
       android:id="@+id/transaction_detail"
@@ -114,9 +118,11 @@
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:layout_marginTop="8dp"
+      android:visibility="@{viewModel.endTransition ? View.VISIBLE : View.GONE}"
+      app:animate="@{viewModel.endTransition}"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@id/plans_view_message" />
-  </androidx.constraintlayout.motion.widget.MotionLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

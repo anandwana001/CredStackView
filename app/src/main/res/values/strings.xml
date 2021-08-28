@@ -6,6 +6,7 @@
   <string name="credit_amount_expand_icon">expand credit amount selection step</string>
   <string name="credit_amount_proceed">Proceed to EMI selection</string>
   <string name="credit_amount_selected">credit amount</string>
+  <string name="credit_amount_seekbar_message">stash is instant. money will be credited within seconds.</string>
   <!-- Plans View -->
   <string name="plans_view_question">how do you wish to repay?</string>
   <string name="plans_view_message">choose one of our recommended plans or make your own</string>
